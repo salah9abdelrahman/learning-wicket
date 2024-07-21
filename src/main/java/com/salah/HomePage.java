@@ -1,5 +1,6 @@
 package com.salah;
 
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.WebPage;
@@ -15,7 +16,14 @@ public class HomePage extends WebPage {
         add(new Label("version", getApplication().getFrameworkSettings().getVersion()));
         add(new Label("helloMessage", "Hello WicketWorld!"));
 
-        // TODO Add your page's components here
+        add(new Link<Void>("myFirstLink"){
+            @Override
+            public void onClick() {
+                //link code goes here
+                setResponsePage(MyFirstWebPage.class);
+
+            }
+        });
 
     }
 }
